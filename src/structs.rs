@@ -1,4 +1,3 @@
-
 // named field structs
 struct Computer {
     ram: i32,
@@ -8,14 +7,21 @@ struct Computer {
 
 // Syntax for creating an object:
 fn make_computer1() -> Computer {
-    let comp = Computer {ram: 4, harddrive: 1024,
-                         cpu_type: "Intel Core i7 7600".to_string()};
+    let comp = Computer {
+        ram: 4,
+        harddrive: 1024,
+        cpu_type: "Intel Core i7 7600".to_string(),
+    };
     comp
 }
 
 // Struct creation are expressions too:
 fn make_computer2() -> Computer {
-    Computer {ram: 4, harddrive: 1024, cpu_type: "Intel Core i7 7600".to_string()}
+    Computer {
+        ram: 4,
+        harddrive: 1024,
+        cpu_type: "Intel Core i7 7600".to_string(),
+    }
 }
 
 // Struct creation are expressions too:
@@ -26,7 +32,11 @@ fn make_computer3(cpu_type: String) -> Computer {
     // ...
 
     // No need for field: EXPR syntax.
-    Computer {ram, harddrive, cpu_type}
+    Computer {
+        ram,
+        harddrive,
+        cpu_type,
+    }
 }
 
 // Tuple like structs:
@@ -53,7 +63,6 @@ struct Modified; // No members...
 
 // Use #[repr(C)] for identical C implementation.
 
-
 // Methods
 impl SortedVector {
     // Associated function.
@@ -71,14 +80,13 @@ impl SortedVector {
         self.0.sort();
     }
 
-
     fn split(self) -> (SortedVector, SortedVector) {
         unimplemented!();
     }
 }
 
-fn do_sorted_stuff(){
-    let mut sv = SortedVector::new(vec![1, 2,3]);
+fn do_sorted_stuff() {
+    let mut sv = SortedVector::new(vec![1, 2, 3]);
     // ...
     sv.push(3);
 
@@ -90,10 +98,7 @@ fn do_sorted_stuff(){
 
 // Functions not defined in any impl block are free functions.
 
-
 // Talk about interior mutability?
-
-
 
 // Save for next lecture on traits and generics?
 // Better Definition of SortedVector:
