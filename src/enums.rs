@@ -32,20 +32,14 @@ enum ServerCommand {
 fn g(s: ServerCommand) {
     match &s {
         // Pattern guard.
-        ServerCommand::Get(x) if *x > 10 => {
+        ServerCommand::Get(x) if *x > 10 => {}
 
-        }
-
-        ServerCommand::Get(x) => {
-
-        }
+        ServerCommand::Get(x) => {}
 
         ServerCommand::Delete(person, _) => {
             let person2: &String = person;
         }
-        ServerCommand::Drop => {
-
-        }
+        ServerCommand::Drop => {}
     }
 
     println!("{:?}", s);
