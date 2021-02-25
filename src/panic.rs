@@ -79,7 +79,9 @@ pub fn capitalize_firstchar(s: &str) -> String {
     // But more likely we don't know s is nonempty, so we should provide
     // a more helpful error message
     // .expect()
-    let ch = chars.next().expect("capitalize function expected a nonempty string");
+    let ch = chars
+        .next()
+        .expect("capitalize function expected a nonempty string");
 
     format!("{}", ch.to_uppercase())
 }
@@ -134,7 +136,10 @@ impl RawPassword {
         if self.pass.is_empty() {
             panic!("Empty password is not secure!");
         } else if self.pass.len() < MIN_PASS_LEN {
-            panic!("Password is too short: must be at least {} chars", MIN_PASS_LEN);
+            panic!(
+                "Password is too short: must be at least {} chars",
+                MIN_PASS_LEN
+            );
         }
         // password should contain at least one number
         fn is_number(ch: char) -> bool {
@@ -173,7 +178,10 @@ pub fn file_to_vec(filepath: &str) -> Vec<usize> {
     let reader = BufReader::new(file);
     // Parses each line as an integer, collects them into a vec
     // NOTE: the use of .unwrap() twice!
-    reader.lines().map(|line| line.unwrap().parse().unwrap()).collect()
+    reader
+        .lines()
+        .map(|line| line.unwrap().parse().unwrap())
+        .collect()
 }
 
 /*

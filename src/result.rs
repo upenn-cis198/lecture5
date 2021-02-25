@@ -1,9 +1,9 @@
-use std::fs::File;
-use std::io::BufReader;
-use std::io::BufRead;
-use std::io::Result;
-use std::io::Read;
 use std::error::Error;
+use std::fs::File;
+use std::io::BufRead;
+use std::io::BufReader;
+use std::io::Read;
+use std::io::Result;
 
 /*
     Result<T, U>
@@ -27,9 +27,7 @@ use std::error::Error;
     returning a Result.
 */
 
-
 pub fn read_whole_file(file: &str) -> String {
-
     // Example from the standard library 1: File::open
     // pub pub open<P: AsRef<Path>>(path: P) -> Result<File>
     let fd = File::open(file);
@@ -47,7 +45,7 @@ pub fn read_whole_file(file: &str) -> String {
             Err(e) => panic!("Failed to read line: {}", e),
         };
 
-        string.push_str(& line);
+        string.push_str(&line);
     }
 
     string
@@ -77,7 +75,7 @@ pub fn read_whole_file_decent(file: &str) -> Result<String> {
         // line is a result
         // Intuitively ? is how you get rid of a result.
         // Only works when the output type of my function is Result
-        string.push_str(& line?);
+        string.push_str(&line?);
     }
 
     Ok(string)
@@ -101,8 +99,8 @@ pub fn read_whole_file_good(file: &str) -> Result<String> {
 
 // People used to write this kind of code.
 pub fn our_main() {
-    match run(){
-        Ok(_) => {},
+    match run() {
+        Ok(_) => {}
         Err(e) => eprintln!("{}", e),
     }
 }
